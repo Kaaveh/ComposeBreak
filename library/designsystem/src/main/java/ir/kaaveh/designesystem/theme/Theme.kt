@@ -1,4 +1,4 @@
-package ir.kaaveh.composebreak.ui.theme
+package ir.kaaveh.designesystem.theme
 
 import android.app.Activity
 import android.os.Build
