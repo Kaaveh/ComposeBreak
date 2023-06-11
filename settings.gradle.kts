@@ -14,5 +14,7 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Compose Break"
-include(":app")
- 
+include(
+    ":app",
+    ":library:designsystem",
+)
