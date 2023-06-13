@@ -17,4 +17,5 @@ rootProject.name = "Compose Break"
 include(
     ":app",
     ":library:designsystem",
+    ":feature:countdown",
 )
