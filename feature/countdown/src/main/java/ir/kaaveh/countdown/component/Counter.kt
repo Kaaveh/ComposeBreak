@@ -9,10 +9,7 @@ import ir.kaaveh.designesystem.ThemePreviews
 import ir.kaaveh.designesystem.theme.ComposeBreakTheme
 
 @Composable
-fun Counter(
-    minutes: String,
-    seconds: String,
-) {
+fun Counter(minutes: String, seconds: String) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
     ) {
