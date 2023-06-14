@@ -4,12 +4,27 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
+import ir.kaaveh.countdown.CountdownState
 import ir.kaaveh.designesystem.ThemePreviews
 import ir.kaaveh.designesystem.theme.ComposeBreakTheme
+import ir.kaaveh.ext_functions.minutes
+import ir.kaaveh.ext_functions.seconds
 
 @Composable
-fun Counter(minutes: String, seconds: String) {
+fun Counter(countdownState: CountdownState) {
+
+    val minutes by remember {
+        mutableStateOf(countdownState.remainTime.minutes.toString())
+    }
+
+    val seconds by remember {
+        mutableStateOf(countdownState.remainTime.seconds.toString())
+    }
+
     Row(
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -26,7 +41,7 @@ fun Counter(minutes: String, seconds: String) {
 private fun CounterPreview() {
     ComposeBreakTheme {
         Surface {
-            Counter(minutes = "19", seconds = "39")
+            Counter(countdownState = CountdownState())
         }
     }
 }

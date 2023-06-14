@@ -40,5 +40,6 @@ android {
 
 dependencies {
     implementation(project(":library:designsystem"))
+    implementation(project(":library:ext-functions"))
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
 }
