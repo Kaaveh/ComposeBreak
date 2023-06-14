@@ -5,3 +5,10 @@ val Int.minutes: Int
 
 val Int.seconds: Int
     get() = this % 60
+
+fun String.toTowDigitFormat(): String =
+    if (this.length == 1) {
+        "0$this"
+    } else {
+        this
+    }
