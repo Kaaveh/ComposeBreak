@@ -9,6 +9,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import ir.kaaveh.countdown.component.Counter
+import ir.kaaveh.countdown.component.CounterController
+import ir.kaaveh.countdown.model.CountdownState
+import ir.kaaveh.countdown.model.CounterState
 import ir.kaaveh.designesystem.theme.ComposeBreakTheme
 
 @Composable
