@@ -13,16 +13,17 @@ import ir.kaaveh.designesystem.ThemePreviews
 import ir.kaaveh.designesystem.theme.ComposeBreakTheme
 import ir.kaaveh.ext_functions.minutes
 import ir.kaaveh.ext_functions.seconds
+import ir.kaaveh.ext_functions.toTowDigitFormat
 
 @Composable
 fun Counter(countdownState: CountdownState) {
 
     val minutes by remember {
-        mutableStateOf(countdownState.remainTime.minutes.toString())
+        mutableStateOf(countdownState.remainTime.minutes.toString().toTowDigitFormat())
     }
 
     val seconds by remember {
-        mutableStateOf(countdownState.remainTime.seconds.toString())
+        mutableStateOf(countdownState.remainTime.seconds.toString().toTowDigitFormat())
     }
 
     Row(
