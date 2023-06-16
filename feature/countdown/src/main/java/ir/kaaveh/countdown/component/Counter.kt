@@ -4,9 +4,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import ir.kaaveh.countdown.model.CountdownState
 import ir.kaaveh.designesystem.ThemePreviews
@@ -18,13 +15,9 @@ import ir.kaaveh.ext_functions.toTowDigitFormat
 @Composable
 fun Counter(countdownState: CountdownState) {
 
-    val minutes by remember {
-        mutableStateOf(countdownState.remainTime.minutes.toString().toTowDigitFormat())
-    }
+    val minutes = countdownState.remainTime.minutes.toString().toTowDigitFormat()
 
-    val seconds by remember {
-        mutableStateOf(countdownState.remainTime.seconds.toString().toTowDigitFormat())
-    }
+    val seconds = countdownState.remainTime.seconds.toString().toTowDigitFormat()
 
     Row(
         verticalAlignment = Alignment.CenterVertically,
