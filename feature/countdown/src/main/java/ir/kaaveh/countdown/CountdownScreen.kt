@@ -14,18 +14,17 @@ import androidx.compose.ui.unit.dp
 import ir.kaaveh.countdown.component.Counter
 import ir.kaaveh.countdown.component.CounterController
 import ir.kaaveh.countdown.model.CountdownState
-import ir.kaaveh.countdown.model.CounterState
 import ir.kaaveh.designesystem.theme.ComposeBreakTheme
 
 @Composable
 fun CountdownRoute(
     viewModel: CountdownViewModel,
 ) {
+    val state = viewModel.countdownState.value
     CountdownScreen(
-        countdownState = viewModel.countdownState.value,
+        countdownState = state,
         onRestClicked = { viewModel.resetCountdown() },
-        onStartClicked = { viewModel.startCountdown() },
-    )
+    ) { viewModel.startCountdown() }
 }
 
 @Composable

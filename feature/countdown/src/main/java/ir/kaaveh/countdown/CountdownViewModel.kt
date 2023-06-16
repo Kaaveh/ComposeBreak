@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import ir.kaaveh.countdown.model.CountdownState
+import ir.kaaveh.countdown.model.CounterState
 import ir.kaaveh.countdown.model.SECOND
 import ir.kaaveh.countdown.model.WORKING_DURATION
 import ir.kaaveh.countdown.model.WorkingState
@@ -21,6 +22,11 @@ class CountdownViewModel : ViewModel() {
     private var timerJob: Job = Job()
 
     fun startCountdown() {
+
+        _countdownState.value = _countdownState.value.copy(
+            counterState = CounterState.PLAY,
+        )
+
         timerJob = viewModelScope.launch {
             while (true) {
                 delay(SECOND)
