@@ -11,6 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import ir.kaaveh.countdown.component.Counter
 import ir.kaaveh.countdown.component.CounterController
 import ir.kaaveh.countdown.model.CountdownState
@@ -18,7 +19,7 @@ import ir.kaaveh.designesystem.theme.ComposeBreakTheme
 
 @Composable
 fun CountdownRoute(
-    viewModel: CountdownViewModel,
+    viewModel: CountdownViewModel = hiltViewModel(),
 ) {
     val state = viewModel.countdownState.value
     CountdownScreen(

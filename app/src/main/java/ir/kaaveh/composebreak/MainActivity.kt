@@ -3,20 +3,17 @@ package ir.kaaveh.composebreak
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import dagger.hilt.android.AndroidEntryPoint
 import ir.kaaveh.countdown.CountdownRoute
-import ir.kaaveh.countdown.CountdownViewModel
 import ir.kaaveh.designesystem.theme.ComposeBreakTheme
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-
-        val countdownViewModel: CountdownViewModel by viewModels()
-
         super.onCreate(savedInstanceState)
         setContent {
             ComposeBreakTheme {
@@ -25,7 +22,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    CountdownRoute(viewModel = countdownViewModel)
+                    CountdownRoute()
                 }
             }
         }
