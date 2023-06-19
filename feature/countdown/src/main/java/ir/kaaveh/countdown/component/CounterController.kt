@@ -1,11 +1,12 @@
 package ir.kaaveh.countdown.component
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.Stop
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
@@ -38,7 +39,7 @@ fun CounterController(
             Icon(
                 imageVector = when (counterState) {
                     CounterState.INITIAL -> Icons.Default.PlayArrow
-                    CounterState.PLAY -> Icons.Filled.Close
+                    CounterState.PLAY -> Icons.Filled.Stop
                     CounterState.PAUSE -> Icons.Default.PlayArrow
                 },
                 contentDescription = null,
@@ -52,11 +53,19 @@ fun CounterController(
 fun CounterControllerPreview() {
     ComposeBreakTheme {
         Surface {
-            CounterController(
-                counterState = CounterState.INITIAL,
-                onRestClicked = {},
-                onStartClicked = {},
-            )
+            Column {
+                CounterController(
+                    counterState = CounterState.INITIAL,
+                    onRestClicked = {},
+                    onStartClicked = {},
+                )
+
+                CounterController(
+                    counterState = CounterState.PLAY,
+                    onRestClicked = {},
+                    onStartClicked = {},
+                )
+            }
         }
     }
 }
