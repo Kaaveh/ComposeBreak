@@ -1,9 +1,13 @@
 package ir.kaaveh.countdown
 
+import android.content.Context
+import android.media.MediaPlayer
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import ir.kaaveh.countdown.model.CountdownState
 import ir.kaaveh.countdown.model.CounterState
 import ir.kaaveh.countdown.model.SECOND
@@ -13,8 +17,12 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class CountdownViewModel : ViewModel() {
+@HiltViewModel
+class CountdownViewModel @Inject constructor(
+    @ApplicationContext val applicationContext: Context
+) : ViewModel() {
 
     private val _countdownState = mutableStateOf(CountdownState())
     val countdownState: State<CountdownState> = _countdownState
@@ -49,9 +57,17 @@ class CountdownViewModel : ViewModel() {
                             this.cancel()
                         }
                     }
+
+                    playAlarmSound()
+
                 }
             }
         }
+    }
+
+    private fun playAlarmSound() {
+        val mediaPlayer =  MediaPlayer.create(applicationContext, ir.kaaveh.designesystem.R.raw.alarm)
+        mediaPlayer.start()
     }
 
     fun resetCountdown() {
