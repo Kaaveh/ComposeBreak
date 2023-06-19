@@ -1,5 +1,7 @@
 package ir.kaaveh.countdown
 
+import android.content.Context
+import android.media.MediaPlayer
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -55,9 +57,17 @@ class CountdownViewModel @Inject constructor(
                             this.cancel()
                         }
                     }
+
+                    playAlarmSound()
+
                 }
             }
         }
+    }
+
+    private fun playAlarmSound() {
+        val mediaPlayer =  MediaPlayer.create(applicationContext, ir.kaaveh.designesystem.R.raw.alarm)
+        mediaPlayer.start()
     }
 
     fun resetCountdown() {
