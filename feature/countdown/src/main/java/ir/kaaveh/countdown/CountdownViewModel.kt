@@ -10,8 +10,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import ir.kaaveh.countdown.model.CountdownState
 import ir.kaaveh.countdown.model.CounterState
+import ir.kaaveh.countdown.model.REST_DURATION
 import ir.kaaveh.countdown.model.SECOND
-import ir.kaaveh.countdown.model.WORKING_DURATION
 import ir.kaaveh.countdown.model.WorkingState
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancel
@@ -45,14 +45,14 @@ class CountdownViewModel @Inject constructor(
                     )
                 else {
                     when (_countdownState.value.workingState) {
-                        WorkingState.REST -> {
+                        WorkingState.WORK -> {
                             _countdownState.value = _countdownState.value.copy(
-                                workingState = WorkingState.WORK,
-                                remainTime = WORKING_DURATION,
+                                workingState = WorkingState.REST,
+                                remainTime = REST_DURATION,
                             )
                         }
 
-                        WorkingState.WORK -> {
+                        WorkingState.REST -> {
                             resetCountdownState()
                             this.cancel()
                         }
@@ -66,7 +66,8 @@ class CountdownViewModel @Inject constructor(
     }
 
     private fun playAlarmSound() {
-        val mediaPlayer =  MediaPlayer.create(applicationContext, ir.kaaveh.designesystem.R.raw.alarm)
+        val mediaPlayer =
+            MediaPlayer.create(applicationContext, ir.kaaveh.designesystem.R.raw.alarm)
         mediaPlayer.start()
     }
 
