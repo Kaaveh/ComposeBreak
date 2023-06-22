@@ -21,13 +21,16 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CountdownViewModel @Inject constructor(
-    @ApplicationContext val applicationContext: Context
+    @ApplicationContext applicationContext: Context
 ) : ViewModel() {
 
     private val _countdownState = mutableStateOf(CountdownState())
     val countdownState: State<CountdownState> = _countdownState
 
     private var timerJob: Job = Job()
+
+    private var mediaPlayer: MediaPlayer =
+        MediaPlayer.create(applicationContext, ir.kaaveh.designesystem.R.raw.alarm)
 
     fun startCountdown() {
 
@@ -66,8 +69,6 @@ class CountdownViewModel @Inject constructor(
     }
 
     private fun playAlarmSound() {
-        val mediaPlayer =
-            MediaPlayer.create(applicationContext, ir.kaaveh.designesystem.R.raw.alarm)
         mediaPlayer.start()
     }
 
@@ -80,6 +81,11 @@ class CountdownViewModel @Inject constructor(
 
     private fun resetCountdownState() {
         _countdownState.value = CountdownState()
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        mediaPlayer.release()
     }
 
 }
