@@ -8,6 +8,7 @@ import androidx.compose.ui.Alignment
 import ir.kaaveh.countdown.model.CountdownState
 import ir.kaaveh.designesystem.ThemePreviews
 import ir.kaaveh.designesystem.theme.ComposeBreakTheme
+import ir.kaaveh.designesystem.widget.AnimatedCounter
 import ir.kaaveh.ext_functions.minutes
 import ir.kaaveh.ext_functions.seconds
 import ir.kaaveh.ext_functions.toTowDigitFormat
@@ -22,11 +23,11 @@ fun Counter(countdownState: CountdownState) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        CounterText(text = minutes)
+        AnimatedCounter(count = minutes)
 
         Text(text = " : ")
 
-        CounterText(text = seconds)
+        AnimatedCounter(count = seconds)
     }
 }
 
