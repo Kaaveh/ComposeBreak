@@ -16,16 +16,29 @@ import ir.kaaveh.countdown.component.Counter
 import ir.kaaveh.countdown.component.CounterController
 import ir.kaaveh.countdown.model.CountdownState
 import ir.kaaveh.designesystem.theme.ComposeBreakTheme
+import ir.kaaveh.ext_functions.minutes
+import ir.kaaveh.ext_functions.seconds
+import ir.kaaveh.ext_functions.toTowDigitFormat
 
 @Composable
 fun CountdownRoute(
     viewModel: CountdownViewModel = hiltViewModel(),
+    onCounterUpdate: (String) -> Unit,
 ) {
+
     val state = viewModel.countdownState.value
+    state.remainTime.apply {
+        val minutes = minutes.toString().toTowDigitFormat()
+        val seconds = seconds.toString().toTowDigitFormat()
+
+        onCounterUpdate("$minutes : $seconds")
+    }
+
     CountdownScreen(
         countdownState = state,
         onRestClicked = { viewModel.resetCountdown() },
-    ) { viewModel.startCountdown() }
+        onStartClicked = { viewModel.startCountdown() },
+    )
 }
 
 @Composable
