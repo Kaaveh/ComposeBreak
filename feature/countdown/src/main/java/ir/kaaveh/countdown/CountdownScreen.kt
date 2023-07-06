@@ -30,8 +30,9 @@ fun CountdownRoute(
     state.remainTime.apply {
         val minutes = minutes.toString().toTowDigitFormat()
         val seconds = seconds.toString().toTowDigitFormat()
+        val notificationContent = "$minutes : $seconds"
 
-        onCounterUpdate("$minutes : $seconds")
+        onCounterUpdate(notificationContent)
     }
 
     CountdownScreen(

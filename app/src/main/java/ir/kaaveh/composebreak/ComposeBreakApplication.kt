@@ -6,6 +6,8 @@ import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
 import dagger.hilt.android.HiltAndroidApp
+import ir.kaaveh.countdown.CHANNEL_ID
+import ir.kaaveh.countdown.CHANNEL_NAME
 
 @HiltAndroidApp
 class ComposeBreakApplication: Application() {

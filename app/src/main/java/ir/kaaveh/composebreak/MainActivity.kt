@@ -1,8 +1,7 @@
 package ir.kaaveh.composebreak
 
 import android.Manifest
-import android.app.NotificationManager
-import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -19,10 +18,12 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import dagger.hilt.android.AndroidEntryPoint
 import ir.kaaveh.countdown.CountdownRoute
+import ir.kaaveh.countdown.CountdownService
+import ir.kaaveh.countdown.DATA
+import ir.kaaveh.countdown.model.Action
 import ir.kaaveh.designesystem.theme.ComposeBreakTheme
 
 @AndroidEntryPoint
@@ -61,7 +62,7 @@ class MainActivity : ComponentActivity() {
                             if (!hasNotificationPermission && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                                 launcher.launch(Manifest.permission.POST_NOTIFICATIONS)
                             } else {
-                                showNotification(contentText = time)
+                                showNotification(notificationContent = time)
                             }
                         }
                     )
@@ -70,15 +71,24 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    private fun showNotification(contentText: String) {
-        val notification = NotificationCompat.Builder(applicationContext, CHANNEL_ID)
-            .setSmallIcon(ir.kaaveh.designesystem.R.drawable.ic_launcher_foreground)
-            .setContentTitle(NOTIFICATION_CONTENT_TITLE)
-            .setContentTitle(contentText)
-            .build()
-        val notificationManager =
-            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.notify(NOTIFICATION_ID, notification)
+    override fun onDestroy() {
+        stopService()
+        super.onDestroy()
+    }
+
+    private fun showNotification(notificationContent: String) {
+        Intent(applicationContext, CountdownService::class.java).apply {
+            action = Action.SHOW_MESSAGE.toString()
+            putExtra(DATA, notificationContent)
+            startService(this)
+        }
+    }
+
+    private fun stopService() {
+        Intent(applicationContext, CountdownService::class.java).apply {
+            action = Action.STOP.toString()
+            startService(this)
+        }
     }
 
 }
