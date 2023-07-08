@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -32,7 +33,9 @@ fun CountdownRoute(
         val seconds = seconds.toString().toTowDigitFormat()
         val notificationContent = "$minutes : $seconds"
 
-        onCounterUpdate(notificationContent)
+        SideEffect {
+            onCounterUpdate(notificationContent)
+        }
     }
 
     CountdownScreen(
