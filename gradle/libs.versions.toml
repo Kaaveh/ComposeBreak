@@ -4,6 +4,26 @@ jetbrainsKotlinAndroid = "1.8.10"
 androidLibrary = "8.2.0-alpha10"
 daggerHiltPlugin = "2.44"
 
+kotlinCompilerExtension = "1.4.3"
+
+ktx = "1.9.0"
+lifecycleRuntimelKtx = "2.6.1"
+activityCompose = "1.7.1"
+daggerHilt = "2.44.2"
+junit = "4.13.2"
+androidxJunit = "1.1.5"
+espresso = "3.5.1"
+
+[libraries]
+androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "ktx" }
+androidx-lifecycleRuntimelKtx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimelKtx" }
+androidx-activityCompose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+dagger-hiltAndroid = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
+dagger-hiltAndroidCompiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "daggerHilt" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxJunit" }
+androidx-espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 jetbrains-kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "jetbrainsKotlinAndroid" }
