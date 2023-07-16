@@ -1,7 +1,7 @@
 [versions]
-androidGradlePlugin = "8.2.0-alpha10"
+androidGradlePlugin = "8.2.0-alpha12"
 jetbrainsKotlinAndroid = "1.8.10"
-androidLibrary = "8.2.0-alpha10"
+androidLibrary = "8.2.0-alpha12"
 daggerHiltPlugin = "2.44"
 
 kotlinCompilerExtension = "1.4.3"
