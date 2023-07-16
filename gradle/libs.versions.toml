@@ -13,6 +13,10 @@ daggerHilt = "2.44.2"
 junit = "4.13.2"
 androidxJunit = "1.1.5"
 espresso = "3.5.1"
+composeBOM = "2023.03.00"
+composeMaterailIcon = "1.5.0-beta02"
+appcompat = "1.6.1"
+material = "1.9.0"
 
 [libraries]
 androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "ktx" }
@@ -23,6 +27,16 @@ dagger-hiltAndroidCompiler = { group = "com.google.dagger", name = "hilt-android
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxJunit" }
 androidx-espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBOM" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-uiGraphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-compose-uiToolingPreview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-compose-materialIcon = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "composeMaterailIcon" }
+androidx-compose-uiTooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-compose-uiTestManifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+android-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
