@@ -1,7 +1,7 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    id("com.google.dagger.hilt.android")
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.jetbrains.kotlinAndroid)
+    alias(libs.plugins.android.daggerHilt)
     kotlin("kapt")
 }
 
@@ -36,17 +36,18 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = libs.versions.kotlinCompilerExtension.get()
     }
 }
 
 dependencies {
     implementation(project(":library:designsystem"))
     implementation(project(":library:ext-functions"))
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
-    implementation("com.google.dagger:hilt-android:2.44.2")
-    kapt("com.google.dagger:hilt-android-compiler:2.44.2")
-    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+
+    implementation(libs.androidx.lifecycleViewmodelKtx)
+    implementation(libs.dagger.hiltAndroid)
+    kapt(libs.dagger.hiltAndroidCompiler)
+    implementation(libs.androidx.hiltNavigationCompose)
 }
 
 kapt {

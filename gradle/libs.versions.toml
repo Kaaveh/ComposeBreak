@@ -17,6 +17,8 @@ composeBOM = "2023.03.00"
 composeMaterailIcon = "1.5.0-beta02"
 appcompat = "1.6.1"
 material = "1.9.0"
+lifecycleViewmodelKtx = "2.6.1"
+hiltNavigationCompose = "1.0.0"
 
 [libraries]
 androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "ktx" }
@@ -37,6 +39,8 @@ androidx-compose-uiTooling = { group = "androidx.compose.ui", name = "ui-tooling
 androidx-compose-uiTestManifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 android-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-lifecycleViewmodelKtx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+androidx-hiltNavigationCompose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
