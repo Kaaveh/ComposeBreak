@@ -1,1 +1,11 @@
+[versions]
+androidGradlePlugin = "8.2.0-alpha10"
+jetbrainsKotlinAndroid = "1.8.10"
+androidLibrary = "8.2.0-alpha10"
+daggerHiltPlugin = "2.44"
 
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+jetbrains-kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "jetbrainsKotlinAndroid" }
+android-library = { id = "com.android.library", version.ref = "androidLibrary" }
+android-daggerHilt = { id = "com.google.dagger.hilt.android", version.ref = "daggerHiltPlugin" }
