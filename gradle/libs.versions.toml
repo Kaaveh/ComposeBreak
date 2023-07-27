@@ -1,0 +1,49 @@
+[versions]
+androidGradlePlugin = "8.2.0-alpha12"
+jetbrainsKotlinAndroid = "1.8.10"
+androidLibrary = "8.2.0-alpha12"
+daggerHiltPlugin = "2.44"
+
+kotlinCompilerExtension = "1.4.3"
+
+ktx = "1.9.0"
+lifecycleRuntimelKtx = "2.6.1"
+activityCompose = "1.7.1"
+daggerHilt = "2.44.2"
+junit = "4.13.2"
+androidxJunit = "1.1.5"
+espresso = "3.5.1"
+composeBOM = "2023.03.00"
+composeMaterailIcon = "1.5.0-beta02"
+appcompat = "1.6.1"
+material = "1.9.0"
+lifecycleViewmodelKtx = "2.6.1"
+hiltNavigationCompose = "1.0.0"
+
+[libraries]
+androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "ktx" }
+androidx-lifecycleRuntimelKtx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimelKtx" }
+androidx-activityCompose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+dagger-hiltAndroid = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
+dagger-hiltAndroidCompiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "daggerHilt" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxJunit" }
+androidx-espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBOM" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-uiGraphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-compose-uiToolingPreview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-compose-materialIcon = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "composeMaterailIcon" }
+androidx-compose-uiTooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-compose-uiTestManifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+android-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-lifecycleViewmodelKtx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+androidx-hiltNavigationCompose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+jetbrains-kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "jetbrainsKotlinAndroid" }
+android-library = { id = "com.android.library", version.ref = "androidLibrary" }
+android-daggerHilt = { id = "com.google.dagger.hilt.android", version.ref = "daggerHiltPlugin" }

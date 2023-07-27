@@ -1,6 +1,6 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.jetbrains.kotlinAndroid)
 }
 
 android {
@@ -34,23 +34,24 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = libs.versions.kotlinCompilerExtension.get()
     }
 }
 
 dependencies {
-    api(platform("androidx.compose:compose-bom:2023.03.00"))
-    api("androidx.compose.ui:ui")
-    api("androidx.compose.ui:ui-graphics")
-    api("androidx.compose.ui:ui-tooling-preview")
-    api("androidx.compose.material3:material3")
-    api("androidx.compose.material:material-icons-extended:1.5.0-beta02")
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.9.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    debugApi("androidx.compose.ui:ui-tooling")
-    debugApi("androidx.compose.ui:ui-test-manifest")
+    val composeBom = platform(libs.androidx.compose.bom)
+    api(composeBom)
+    api(libs.androidx.compose.ui)
+    api(libs.androidx.compose.uiGraphics)
+    api(libs.androidx.compose.uiToolingPreview)
+    api(libs.androidx.compose.material3)
+    api(libs.androidx.compose.materialIcon)
+    implementation(libs.androidx.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.android.material)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso)
+    debugApi(libs.androidx.compose.uiTooling)
+    debugApi(libs.androidx.compose.uiTestManifest)
 }
