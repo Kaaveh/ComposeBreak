@@ -1,7 +1,7 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
-    id("com.google.dagger.hilt.android")
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.jetbrains.kotlinAndroid)
+    alias(libs.plugins.android.daggerHilt)
     kotlin("kapt")
 }
 
@@ -42,7 +42,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = libs.versions.kotlinCompilerExtension.get()
     }
     packaging {
         resources {
@@ -54,16 +54,17 @@ android {
 dependencies {
     implementation(project(":library:designsystem"))
     implementation(project(":feature:countdown"))
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
-    implementation("androidx.activity:activity-compose:1.7.1")
 
-    implementation("com.google.dagger:hilt-android:2.44.2")
-    kapt("com.google.dagger:hilt-android-compiler:2.44.2")
+    implementation(libs.androidx.ktx)
+    implementation(libs.androidx.lifecycleRuntimelKtx)
+    implementation(libs.androidx.activityCompose)
 
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    implementation(libs.dagger.hiltAndroid)
+    kapt(libs.dagger.hiltAndroidCompiler)
+
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso)
 }
 
 kapt {
