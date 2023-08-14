@@ -41,8 +41,10 @@ android {
 }
 
 dependencies {
-    implementation(project(":library:designsystem"))
-    implementation(project(":library:ext-functions"))
+    projects.library.apply {
+        implementation(designsystem)
+        implementation(extFunctions)
+    }
 
     implementation(libs.androidx.lifecycleViewmodelKtx)
     implementation(libs.dagger.hiltAndroid)
